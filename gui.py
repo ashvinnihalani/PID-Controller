@@ -7,6 +7,7 @@ from matplotlib import style
 from tkinter import * # Import the tinker module
 from tkinter import ttk #Themed ttk
 #Create & Configure root 
+
 root = Tk() # Main window
 root.title("PID Interface")
 root.columnconfigure(0, weight=1) #Inside root: 1 col, expand to fit
@@ -116,6 +117,8 @@ def animate(i):
 
     a.clear()
     a.plot(xList, yList)
-
+canvas = FigureCanvasTkAgg(f, mainframe)
+canvas.show()
 for child in mainframe.winfo_children(): child.grid_configure(padx=10, pady=10)
+ani = animation.FuncAnimation(f, animate, interval=1000)
 root.mainloop()
